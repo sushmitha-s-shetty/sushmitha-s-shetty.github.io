@@ -14,6 +14,17 @@ from sklearn.linear_model import LogisticRegression
 clf=LogisticRegression()
 clf.fit(x_train,y_train)
 
+#this for flask using this file used to load
+from sklearn.externals import joblib
+joblib.dump(clf,'irisPred.sav')
+
+
+
+from sklearn.externals import joblib
+model=joblib.load('irisPred.sav')
+model.predict([[5.8,2.8,5.1,2.4]])
+#this below code for iris pred
+"""
 y_pred=clf.predict(x_test)
 
 score=clf.score(x_test,y_test)
@@ -25,3 +36,4 @@ pred=clf.predict([a])
         
 
 print("the flower is",target_names[pred])
+"""
